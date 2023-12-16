@@ -1,0 +1,45 @@
+version: '3.1'
+
+services:
+  db:
+    image: mongo:7
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: $DB_NAME
+      DB_NAME: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASS: $DB_PASS
+    volumes:
+      - db-data:/data/db
+      - ./db/init.sh:/docker-entrypoint-initdb.d/init.sh
+    ports:
+      - "27017:27017"
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./server/src:/app/src
+    ports:
+      - "4000:4000"
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - ./web/src:/app/src
+      - ./web/public:/app/public
+    ports:
+      - "3000:3000"
+
+volumes:
+  db-data:
