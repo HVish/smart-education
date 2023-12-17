@@ -1,8 +1,13 @@
 const jwt = require('jsonwebtoken');
 const { config } = require('../config');
 
-function generateToken({ _id: userId, email, name, photo, role }) {
-  return jwt.sign({ userId, email, name, photo, role }, config.jwtSecret, { expiresIn: '1h' });
+function getProfileData(user) {
+  const { _id: userId, email, name, photo, role } = user;
+  return { userId, email, name, photo, role };
+}
+
+function generateToken(user) {
+  return jwt.sign(getProfileData(user), config.jwtSecret, { expiresIn: '1h' });
 }
 
 function verifyToken(token) {
@@ -11,6 +16,7 @@ function verifyToken(token) {
 }
 
 module.exports = {
+  getProfileData,
   generateToken,
   verifyToken,
 };

@@ -10,9 +10,12 @@ const authRoutes = Router();
 authRoutes.post('/login', validate({ body: loginUserDto }), async (req, res, next) => {
   try {
     const context = createAppContext(req);
-    const token = await loginUser(context, req.body);
-    res.cookie('jwt', token, { httpOnly: true });
-    res.json({ message: 'Login successful' });
+    const { token, profile } = await loginUser(context, req.body);
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + 60 * 60 * 1000), // expire in 1 hour
+    });
+    res.json(profile);
   } catch (error) {
     next(error);
   }
