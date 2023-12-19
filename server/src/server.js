@@ -1,4 +1,5 @@
 const express = require('express');
+const { createServer } = require('node:http');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const { StatusCodes } = require('http-status-codes');
@@ -7,8 +8,10 @@ const { config } = require('./config');
 const { initDB } = require('./db');
 const { appRoutes } = require('./routes');
 const { isApiError } = require('./shared/errors');
+const { initWS } = require('./socket');
 
 const app = express();
+const server = createServer(app);
 
 app.use(morgan('tiny'));
 
@@ -34,8 +37,9 @@ app.use((err, req, res, _next) => {
 });
 
 async function main() {
+  initWS(server);
   await initDB();
-  app.listen(config.port, () => {
+  server.listen(config.port, () => {
     console.log(`Server started on http://localhost:${config.port}`);
   });
 }
