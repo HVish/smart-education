@@ -5,11 +5,11 @@ import Box from '@mui/material/Box';
 
 import Nav from './nav';
 import Main from './main';
-import Header from './header';
+import Header from '../common/header';
 
 // ----------------------------------------------------------------------
 
-export default function DashboardLayout({ children }) {
+export default function TutorLayout({ children }) {
   const [openNav, setOpenNav] = useState(false);
 
   return (
@@ -31,6 +31,6 @@ export default function DashboardLayout({ children }) {
   );
 }
 
-DashboardLayout.propTypes = {
+TutorLayout.propTypes = {
   children: PropTypes.node,
 };

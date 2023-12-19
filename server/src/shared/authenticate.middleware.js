@@ -6,7 +6,7 @@ const authenticate = async (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (!token) {
-    next(new UnauthenticatedError('JWT verification failed'));
+    next(new UnauthenticatedError('Unauthenticated'));
     return;
   }
 

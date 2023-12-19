@@ -13,11 +13,10 @@ import { bgBlur } from 'src/theme/css';
 
 import Iconify from 'src/components/iconify';
 
-import Searchbar from './common/searchbar';
-import { NAV, HEADER } from './config-layout';
-import AccountPopover from './common/account-popover';
-import LanguagePopover from './common/language-popover';
-import NotificationsPopover from './common/notifications-popover';
+import AccountPopover from './account-popover';
+import LanguagePopover from './language-popover';
+import { NAV, HEADER } from '../learner/config-layout';
+import NotificationsPopover from './notifications-popover';
 
 // ----------------------------------------------------------------------
 
@@ -33,8 +32,6 @@ export default function Header({ onOpenNav }) {
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
       )}
-
-      <Searchbar />
 
       <Box sx={{ flexGrow: 1 }} />
 

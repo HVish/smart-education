@@ -39,7 +39,8 @@ export default function LoginView() {
 
   useEffect(() => {
     if (profile) {
-      router.replace('/');
+      const entryRoute = profile.role === 'mentor' ? '/tutor' : '/learner';
+      router.replace(entryRoute);
     }
   }, [profile, router]);
 
