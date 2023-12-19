@@ -7,8 +7,13 @@ export function connectWS({ onConnect, onDisconnect } = {}) {
 
   socket = io();
 
+  socket.on('connect_error', (err) => {
+    console.log(err.message);
+  });
+
   socket.on('connect', () => {
     console.log('websocket connected', socket.id);
+    socket.emit('hello', 1, 'somestring', { one: 'key' });
     onConnect?.(socket);
   });
 
