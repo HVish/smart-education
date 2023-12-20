@@ -1,6 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 
 import * as api from './notification.api';
+
+export const addNotification = createAction('notifications/add');
 
 export const fetchMyNotifications = createAsyncThunk(
   'notifications/fetchMyNotifications',

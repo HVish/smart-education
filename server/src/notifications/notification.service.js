@@ -4,7 +4,7 @@ async function createNotification(context, createNotificationDto) {
   const notification = await Notification.create(createNotificationDto);
   for (const { userId } of notification.audiences) {
     // notify all users
-    context.socket?.to(userId.toHexString()).emit(notification);
+    context.socket?.to(userId.toHexString()).emit('notification', notification);
   }
   return notification;
 }

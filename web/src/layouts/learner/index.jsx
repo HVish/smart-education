@@ -1,7 +1,10 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
+
+import { connectSocket, disconnectSocket } from 'src/app/socket/socket.action';
 
 import Nav from './nav';
 import Main from './main';
@@ -10,7 +13,14 @@ import Header from '../common/header';
 // ----------------------------------------------------------------------
 
 export default function LearnerLayout({ children }) {
+  const dispatch = useDispatch();
+
   const [openNav, setOpenNav] = useState(false);
+
+  useEffect(() => {
+    dispatch(connectSocket());
+    return () => dispatch(disconnectSocket());
+  });
 
   return (
     <>

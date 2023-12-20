@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { adaptor } from './notification.adaptor';
 import {
+  addNotification,
   fetchMyNotifications,
   markNotificationAsSeen,
   markAllNotificationsAsSeen,
@@ -12,6 +13,9 @@ export const notificationsSlice = createSlice({
   initialState: adaptor.getInitialState(),
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(addNotification, (state, action) => {
+      adaptor.addOne(state, action.payload);
+    });
     builder.addCase(fetchMyNotifications.fulfilled, (state, action) => {
       adaptor.removeAll(state);
       adaptor.setAll(state, action.payload);

@@ -4,6 +4,7 @@ import { api } from 'src/utils/api';
 
 import { authSlice } from './auth/auth.slice';
 import { setProfile } from './auth/auth.action';
+import socketMiddleware from './socket/socket.middleware';
 import { notificationsSlice } from './notifications/notification.slice';
 
 console.log('store');
@@ -13,6 +14,7 @@ export const store = configureStore({
     auth: authSlice.reducer,
     notifications: notificationsSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(socketMiddleware()),
 });
 
 // api request interceptor to redirect user to login page if a auth error is received
