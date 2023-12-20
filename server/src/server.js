@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('node:path');
 const { createServer } = require('node:http');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -22,6 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/health', (req, res) => {
   res.json({ message: 'ok' });
 });
+
+const publicPath = path.join(__dirname, '..', 'public');
+app.use(express.static(publicPath));
 
 app.use(appRoutes);
 
