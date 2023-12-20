@@ -13,8 +13,12 @@ const userRoutes = Router();
 userRoutes.post('/', validate({ body: createUserDto }), async (req, res, next) => {
   try {
     const context = createAppContext(req);
-    const result = await createUser(context, req.body);
-    return res.status(StatusCodes.CREATED).json(result);
+    const { token, profile } = await createUser(context, req.body);
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      expires: new Date(Date.now() + 60 * 60 * 1000), // expire in 1 hour
+    });
+    res.status(StatusCodes.CREATED).json(profile);
   } catch (error) {
     next(error);
   }

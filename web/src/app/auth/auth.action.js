@@ -4,6 +4,16 @@ import * as api from './auth.api';
 
 export const setProfile = createAction('auth/setProfile');
 
+export const signupUser = createAsyncThunk(
+  'auth/signupUser',
+  async ({ name, email, password, role }, { dispatch }) => {
+    const profile = await api.signupUser({ name, email, password, role });
+    window.localStorage.setItem('profile', JSON.stringify(profile));
+    dispatch(setProfile(profile));
+    return profile;
+  }
+);
+
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async ({ email, password }, { dispatch }) => {

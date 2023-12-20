@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 
 import { account } from 'src/_mock/account';
 import { logoutUser } from 'src/app/auth/auth.action';
+import { selectProfile } from 'src/app/auth/auth.selector';
 
 // ----------------------------------------------------------------------
 
@@ -34,6 +35,7 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const dispatch = useDispatch();
+  const profile = useSelector(selectProfile);
 
   const [open, setOpen] = useState(null);
 
@@ -65,14 +67,14 @@ export default function AccountPopover() {
       >
         <Avatar
           src={account.photoURL}
-          alt={account.displayName}
+          alt={profile?.name}
           sx={{
             width: 36,
             height: 36,
             border: (theme) => `solid 2px ${theme.palette.background.default}`,
           }}
         >
-          {account.displayName.charAt(0).toUpperCase()}
+          {profile?.name.charAt(0).toUpperCase()}
         </Avatar>
       </IconButton>
 
@@ -93,10 +95,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2 }}>
           <Typography variant="subtitle2" noWrap>
-            {account.displayName}
+            {profile?.name}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {account.email}
+            {profile?.email}
           </Typography>
         </Box>
 

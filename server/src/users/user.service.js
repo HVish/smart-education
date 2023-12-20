@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 
 const { ValidationError } = require('../shared/errors');
 const { User } = require('./user.model');
+const { generateToken, getProfileData } = require('../utils/jwt');
 
 const saltRounds = 10;
 
@@ -14,8 +15,12 @@ async function createUser(context, createUserDto) {
   createUserDto.password = await bcrypt.hash(createUserDto.password, salt);
 
   // Creat user with hashed password
-  const user = User.create(createUserDto);
-  return user;
+  const user = await User.create(createUserDto);
+
+  const token = generateToken(user);
+  const profile = getProfileData(user);
+
+  return { token, profile };
 }
 
 async function updateUser(context, updateUserDto) {
