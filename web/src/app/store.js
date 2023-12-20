@@ -4,12 +4,14 @@ import { api } from 'src/utils/api';
 
 import { authSlice } from './auth/auth.slice';
 import { setProfile } from './auth/auth.action';
+import { notificationsSlice } from './notifications/notification.slice';
 
 console.log('store');
 
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
+    notifications: notificationsSlice.reducer,
   },
 });
 

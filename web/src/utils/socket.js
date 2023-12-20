@@ -13,7 +13,6 @@ export function connectWS({ onConnect, onDisconnect } = {}) {
 
   socket.on('connect', () => {
     console.log('websocket connected', socket.id);
-    socket.emit('hello', 1, 'somestring', { one: 'key' });
     onConnect?.(socket);
   });
 

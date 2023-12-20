@@ -13,28 +13,35 @@ async function getMyNotifications(context) {
   const userId = context.user.userId;
   const notifications = await Notification.find({ audiences: { $elemMatch: { userId } } })
     .sort('-createdAt')
-    .limit(5);
-  return notifications;
+    .limit(5)
+    .lean();
+  return notifications.map(({ audiences, ...notification }) => {
+    const user = audiences.find(({ userId: u }) => u.equals(userId));
+    return {
+      ...notification,
+      isSeen: user.isSeen,
+    };
+  });
 }
 
 async function markAsSeen(context, notificationId) {
   const userId = context.user.userId;
-  const notification = await Notification.findByIdAndUpdate(
+  const { audiences: _, ...notification } = await Notification.findByIdAndUpdate(
     notificationId,
     { $set: { 'audiences.$[item].isSeen': true } },
     { arrayFilters: [{ 'item.userId': userId }], new: true },
-  );
+  ).lean();
+  notification.isSeen = true;
   return notification;
 }
 
 async function markAllAsSeen(context) {
   const userId = context.user.userId;
-  const notifications = await Notification.updateMany(
+  const result = await Notification.updateMany(
     { audiences: { $elemMatch: { userId } } },
     { $set: { 'audiences.$.isSeen': true } },
-    { new: true },
   );
-  return notifications;
+  return result;
 }
 
 module.exports = {
