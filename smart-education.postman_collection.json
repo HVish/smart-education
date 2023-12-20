@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"1234567890\"\n}",
+							"raw": "{\n    \"email\": \"mentor@example.com\",\n    \"password\": \"1234567890\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,7 +42,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"1234567890\"\n}",
+									"raw": "{\n    \"email\": \"mentor@example.com\",\n    \"password\": \"1234567890\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -98,7 +98,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"password\": \"$2b$10$evE1WtL2tbJHy0TBLohsm.Y1gVzJz76JTuP0x80W/9lEDAS8d9eOy\",\n    \"role\": \"mentor\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
+							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"mentor@example.com\",\n    \"password\": \"$2b$10$evE1WtL2tbJHy0TBLohsm.Y1gVzJz76JTuP0x80W/9lEDAS8d9eOy\",\n    \"role\": \"mentor\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
 						}
 					]
 				},
@@ -189,7 +189,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"student\"\n}",
+							"raw": "{\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"mentor@example.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"mentor\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -214,7 +214,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"student\"\n}",
+									"raw": "{\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"mentor@example.com\",\n    \"password\": \"1234567890\",\n    \"role\": \"mentor\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -222,12 +222,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/users",
-									"protocol": "http",
+									"raw": "{{baseurl}}/users",
 									"host": [
-										"localhost"
+										"{{baseurl}}"
 									],
-									"port": "4000",
 									"path": [
 										"users"
 									]
@@ -238,8 +236,12 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 11:23:29 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -247,27 +249,27 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "230"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"e6-iyDbinJ/JDUGN4r/qKW3Q4LALG0\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 16 Dec 2023 21:23:07 GMT"
+									"value": "104"
 								},
 								{
 									"key": "Connection",
 									"value": "keep-alive"
 								},
 								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTgyY2ViMWM4MGQ1MGM5NTc2ZDRmMDMiLCJlbWFpbCI6Im1lbnRvckBleGFtcGxlLmNvbSIsIm5hbWUiOiJWaXNobnUgU2luZ2giLCJyb2xlIjoibWVudG9yIiwiaWF0IjoxNzAzMDcxNDA5LCJleHAiOjE3MDMwNzUwMDl9.Pxp8npjeSDplO5WjnOr-iFYdyqe3nS-C-gscJEYHVxQ; Path=/; Expires=Wed, 20 Dec 2023 12:23:29 GMT; HttpOnly"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-g6CPCg7bseinF96KOV82bFUp3VI\""
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"password\": \"$2b$10$evE1WtL2tbJHy0TBLohsm.Y1gVzJz76JTuP0x80W/9lEDAS8d9eOy\",\n    \"role\": \"student\",\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
+							"body": "{\n    \"userId\": \"6582ceb1c80d50c9576d4f03\",\n    \"email\": \"mentor@example.com\",\n    \"name\": \"Vishnu Singh\",\n    \"role\": \"mentor\"\n}"
 						}
 					]
 				},
@@ -338,7 +340,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"role\": \"student\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
+							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"mentor@example.com\",\n    \"role\": \"student\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
 						},
 						{
 							"name": "Authentication failed",
@@ -477,7 +479,405 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"test@example.com\",\n    \"role\": \"student\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
+							"body": "{\n    \"_id\": \"657e153bb583be57e1ac92d3\",\n    \"name\": \"Vishnu Singh\",\n    \"email\": \"mentor@example.com\",\n    \"role\": \"student\",\n    \"createdAt\": \"2023-12-16T21:23:07.042Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Create notification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test notification 10\",\n    \"description\": \"Some description\",\n    \"type\": \"general\",\n    \"audiences\": [\n        {\n            \"userId\": \"657e153bb583be57e1ac92d3\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/notifications",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Test notification 8\",\n    \"description\": \"Some description\",\n    \"type\": \"general\",\n    \"audiences\": [\n        {\n            \"userId\": \"657e153bb583be57e1ac92d3\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/notifications",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:01:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "300"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12c-BYzfztbBcy/wmOo36O7Dpl0rzQc\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Test notification 8\",\n    \"description\": \"Some description\",\n    \"type\": \"general\",\n    \"audiences\": [\n        {\n            \"userId\": \"657e153bb583be57e1ac92d3\",\n            \"isSeen\": false,\n            \"_id\": \"658220d85d97d4f6be588d58\"\n        }\n    ],\n    \"_id\": \"658220d85d97d4f6be588d57\",\n    \"createdAt\": \"2023-12-19T23:01:44.390Z\",\n    \"updatedAt\": \"2023-12-19T23:01:44.390Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Get My Notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/notifications",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/notifications",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:06:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1506"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e2-XUcuTVuKNzy0DURvHoWABISQ8+U\""
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"65822df7776b3f5970bf1b0a\",\n        \"title\": \"Test notification 9\",\n        \"description\": \"Some description\",\n        \"type\": \"general\",\n        \"createdAt\": \"2023-12-19T23:57:43.522Z\",\n        \"updatedAt\": \"2023-12-19T23:57:43.522Z\",\n        \"__v\": 0,\n        \"isSeen\": false\n    },\n    {\n        \"_id\": \"658220d85d97d4f6be588d57\",\n        \"title\": \"Test notification 8\",\n        \"description\": \"Some description\",\n        \"type\": \"general\",\n        \"createdAt\": \"2023-12-19T23:01:44.390Z\",\n        \"updatedAt\": \"2023-12-19T23:14:10.705Z\",\n        \"__v\": 0,\n        \"isSeen\": true\n    },\n    {\n        \"_id\": \"6582207431bbdc1049e851f2\",\n        \"title\": \"Test notification 7\",\n        \"description\": \"Some description\",\n        \"type\": \"general\",\n        \"createdAt\": \"2023-12-19T23:00:04.514Z\",\n        \"updatedAt\": \"2023-12-19T23:14:10.705Z\",\n        \"__v\": 0,\n        \"isSeen\": true\n    },\n    {\n        \"_id\": \"6582205431bbdc1049e851ef\",\n        \"title\": \"Test notification 6\",\n        \"description\": \"Some description\",\n        \"type\": \"general\",\n        \"createdAt\": \"2023-12-19T22:59:32.833Z\",\n        \"updatedAt\": \"2023-12-19T23:14:10.705Z\",\n        \"__v\": 0,\n        \"isSeen\": true\n    },\n    {\n        \"_id\": \"65821f2fa8c73f752605be90\",\n        \"title\": \"Test notification 5\",\n        \"description\": \"Some description\",\n        \"type\": \"general\",\n        \"createdAt\": \"2023-12-19T22:54:39.209Z\",\n        \"updatedAt\": \"2023-12-19T23:14:10.705Z\",\n        \"__v\": 0,\n        \"isSeen\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Mark As Seen",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/notifications/:notificationId/seen",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notifications",
+								":notificationId",
+								"seen"
+							],
+							"variable": [
+								{
+									"key": "notificationId",
+									"value": "65821ea9f0fff0b48a129137"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/notifications/:notificationId/seen",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"notifications",
+										":notificationId",
+										"seen"
+									],
+									"variable": [
+										{
+											"key": "notificationId",
+											"value": "65821ea9f0fff0b48a129137"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:10:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12b-2MM+9zJR/PKUWk60Al1gWiHVJLs\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65821ea9f0fff0b48a129137\",\n    \"title\": \"Test notification 4\",\n    \"description\": \"Some description\",\n    \"type\": \"general\",\n    \"createdAt\": \"2023-12-19T22:52:25.923Z\",\n    \"updatedAt\": \"2023-12-19T23:57:08.798Z\",\n    \"__v\": 0,\n    \"isSeen\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Mark All As Seen",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/notifications/seen",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notifications",
+								"seen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/notifications/seen",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"notifications",
+										"seen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 23:13:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "92"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5c-pxFl9av9f8Uh4vx7kOYM5QcYSik\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"acknowledged\": true,\n    \"modifiedCount\": 8,\n    \"upsertedId\": null,\n    \"upsertedCount\": 0,\n    \"matchedCount\": 8\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Videos",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "video",
+											"type": "file",
+											"src": "/Users/sakshee/Downloads/pexels-marian-croitoru-7064870 (Original).mp4"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/videos/upload",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"videos",
+										"upload"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.3"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 20 Dec 2023 12:14:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-9iYBWzUuPk/Ge1BsxxX2PzrXLs4\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"videoUrl\": \"/api/uploads/1703074497306.mp4\"\n}"
 						}
 					]
 				}
@@ -507,7 +907,7 @@
 	"variable": [
 		{
 			"key": "baseurl",
-			"value": "http://localhost:3000",
+			"value": "http://localhost:3000/api",
 			"type": "string"
 		}
 	]
